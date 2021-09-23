@@ -1,0 +1,1619 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+    height: 120px;
+    background: linear-gradient(0,#fd6032,#f6422e);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+}
+.row1 {
+    display: flex;
+    justify-content: space-around;
+
+}
+.nav {
+    display: flex;
+    font-size: 13px;
+    list-style-type: none;
+    margin-top: 10px;
+    margin-left: 8px;
+    height: min-content;
+}
+.nav li {
+    margin-right: 16px;
+    color: #fff;
+    
+}
+.connect a {
+    font-size: 16px;
+    margin-left: 8px;
+    color: #fff;
+}
+.login .bell,.help {
+    font-size: 16px;
+    margin-right: 8px;
+}
+.connect li:nth-child(2){
+    padding-top: 2px;
+    position: relative;
+}
+
+.connect li:nth-child(2):hover,
+.login li:hover {
+    background-color: rgb(76 181 216 / 13%);
+    cursor: pointer;
+}
+.nav.login {
+    margin-right: -8px;
+}
+.login li:nth-child(3),
+.connect li:nth-child(1) {
+    position: relative;
+}
+.connect li:nth-child(1),
+.login li:nth-child(3),
+.login li:nth-child(4)
+ {
+    font-weight: 600;
+    padding-top: 2px;
+}
+.login li:nth-child(3)::after,
+.connect li:nth-child(1)::after,
+.connect li:nth-child(2)::after {
+    content: "";
+    position: absolute;
+   border-right: 2px solid hsla(0,0%,100%,.22);
+   height: 16px;
+   right: -9px;
+}
+/* app tải */
+.downapp {
+    width: 188px;
+    height: 230px;
+    position: absolute;
+    top: 30px;
+    display: none;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background-color: #fff;
+
+}
+.downapp::before {
+    content: "";
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: -18px;
+    left: 0;
+}
+
+.connect li:nth-child(2):hover .downapp {
+    display: block;
+}
+
+.qr img {
+   max-width: 100%;
+
+}
+.appdown img {
+    height:16px ;
+    margin-left: 11px;
+
+}
+.appdown img:nth-child(2) {
+    margin-left: 23px;
+}
+.row2 {
+    height: 85px;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-around;
+}
+.logo {
+    width: 20%;
+    height: 60px;
+    display: flex;
+    margin-left:173px;
+}
+.logo img {
+    width: 25%;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.logo .namelogo {
+    color: #fff;
+    margin-left: 12px;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: -2px;
+}
+.inputsearch {
+    width: 65%;
+    height: 40px;
+    margin-top: 10px;
+    position: relative;
+}
+.inputsearch .nhap {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 0 2px #fff;
+    outline: none;
+    font-size: 16px;
+    padding: 0 16px;
+}
+.search {
+    position: absolute;
+    background-color:#fb5533;
+    width: 60px;
+    height: 34px;
+    right: 3px;
+    top: 3px;
+    border: none;
+    border-radius: 2px;
+}
+.search:hover {
+        opacity: 0.5;   
+        cursor: pointer;  
+}
+.search i {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 8px;
+}
+.giohang {
+    font-size: 26px;
+    color: #fff;
+    padding-top: 23px;
+    width: 20%;
+    
+}
+.giohang i {
+    margin-left: 10px;
+}
+/* hover vào giỏ hàng */
+.giohang1 {
+    width: 50px;
+    margin-left: 38px;
+    position: relative;
+}
+.spmua {
+    width: 390px;
+    height: 250px;
+    position:absolute;
+    top:38px;
+    left: -338px;
+    background-color: #f5f5f5;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    transform-origin: calc(100% - 15px) top;
+    animation: opennotifi ease-in 0.3s;
+}
+.spmua::after {
+    content: "";
+    border-width: 20px 24px;
+    border-style: solid;
+    border-color: transparent transparent #f5f5f5 transparent;
+    position: absolute;
+    top: -32px;
+    right: 0;
+
+}
+.spmua img {
+    width: 130px;
+    margin-bottom: 20px;
+}
+.spmua span {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+.giohang1:hover .spmua {
+    display: flex;
+    cursor: pointer;
+}
+/* kết thúc hover giỏ hàng */
+/* làm phần thông báo */
+.login li:nth-child(1) {
+    position: relative;
+}
+.notifi {
+    width: 400px;
+    position: absolute;
+    background-color: #fff;
+    right: 0px;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    margin-top: 12px;
+    transform-origin: calc(100% - 20px) top;
+    animation: opennotifi ease-in 0.3s;
+    display: none;
+    /* animation: closenotifi ease-in 0.3s; */
+
+
+}
+.notifi::before {
+    content: "";
+    width: 400px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: -12px;
+}
+.notifi::after {
+    content: "";
+    border-style: solid;
+    border-width: 20px 30px;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    top: -30px;
+    right: 10px;
+}
+
+
+.login li:nth-child(1):hover .notifi {
+    display: block;
+}
+@keyframes opennotifi {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+/* @keyframes closenotifi {
+    to {
+        transform: scale(0);
+    }
+} */
+.hederno {
+    width: 100%;
+    height: 38px;
+    padding:16px 8px ;
+}
+.hederno span {
+    color: #808080;
+    font-size: 14px;
+   
+}
+.bodyno {
+    margin-top: 10px;
+}
+.listno li {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.listno li:hover {
+    background-color: rgb(228 81 81 / 10%);
+}
+.no1 {
+    display: flex;
+}
+.no1 img {
+    width: 40px;
+    height: 46px;
+    object-fit: contain;
+    margin-left: 8px;
+}
+.motano {
+    color: black;
+}
+.motano span {
+    display: block;
+    line-height: 1.4;
+    margin-left: 8px;
+    font-size: 14px;
+}
+.motano .mota1 {
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+.motano .mota2 {
+   color: #808080 ;
+   font-weight: 400; 
+}
+/* css form đăng ký/đăng nhập */
+.formlogin {
+    background: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 8;
+   
+}
+.js-login {
+    display: none;
+}
+
+.container-login {
+    width: 400px;
+    background-color: #fff;
+    margin: auto;
+}
+.pd32 {
+    padding: 32px 30px;
+}
+.dangky span {
+    font-size: 20px;
+    font-weight: 600;
+}
+.nhapinfor {
+    display: flex;
+    flex-direction: column;
+}
+.nhapinfor input {
+    font-size: 14px;
+    padding: 12px;
+    margin-top: 20px;
+    outline: none;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+}
+.nhapinfor input:focus {
+    border-color:#888 ;
+}
+.nhapinfor .btn-dk {
+    height: 40px;
+    margin: 20px 0;
+    border: none;
+    background: #ee4d2d;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 2px;
+}
+.nhapinfor .btn-dk:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.or {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ngang {
+    width: 130px;
+    height: 2px;
+    background: #dbdbdb;
+}
+.or span {
+    color: #dbdbdb;
+    font-size: 16px;
+    font-weight: 600;
+}
+.social {
+    display: flex;
+    margin-top: 20px;
+    
+}
+.width30 {
+    width: 30%;
+    height: 40px;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 2px;
+}
+.width30:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.face {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #1877f2;
+}
+.google {
+    margin: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #4285f4;
+}
+.width30 a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+.apple {
+    background: #000000;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.policy-text {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+}
+.policy-text a {
+    text-decoration: none;
+    color: #f05f41;
+}
+.dangnhap {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+.dangnhap span {
+    color: #cdcdcd;
+}
+
+.dangnhap a {
+    color: #ef583a;
+    text-decoration: none;
+    font-weight: 600;
+}
+/* làm phần đăng nhập */
+.formlogin-dangnhap {
+    display: none;
+}
+.quenmk {
+    margin: 10px 0;
+    display: flex;
+}
+.nhapinfor .btn-dk.btn-dk-dangnhap {
+    margin: 20px 0 -4px 0;
+}
+.quenmk {
+    margin: 10px 0;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.quenmk a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #206ab5;
+}
+.openlogin {
+    display: flex;
+}
+/* làm phần slider tổng */
+.slidertong {
+    display: flex;
+    margin-top: 148px;
+    margin-bottom: 20px;
+}
+.cantong {
+    margin: auto;
+    width: 1200px;
+    height: 235px;
+    display: flex;
+    justify-content: center;
+
+}
+.showanh {
+    height: 235px;
+}
+
+.showanh img {
+    height: 115px;
+    border-radius: 2px;
+
+}
+
+/* kết thúc slider tổng */
+/* làm phần slider chuyển ảnh */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+.slider {
+    width: 800px;
+    height:235px ;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.slides {
+    height:235px ;
+    width: 1000%;
+    display: flex;
+}
+.slides input {
+    display: none;
+}
+.slide {
+    width: 10%;
+    transition: 1s;
+}
+.slide img {
+    width: 800px;
+    height: 235px;
+    object-fit: cover;
+}
+.navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -16px;
+    display: flex;
+    justify-content: center;
+
+}
+.manual-btn {
+    border: 2px solid #d6dcdf;
+    padding: 3px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.manual-btn:not(:last-child) {
+    margin-right: 20px;
+}
+.manual-btn:hover {
+    background-color:#d6dcdf;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+#radio2:checked ~ .first {
+    margin-left: -10%;
+}
+#radio3:checked ~ .first {
+    margin-left: -20%;
+}
+#radio4:checked ~ .first {
+    margin-left: -30%;
+}
+#radio5:checked ~ .first {
+    margin-left: -40%;
+}
+#radio6:checked ~ .first {
+    margin-left: -50%;
+}
+#radio7:checked ~ .first {
+    margin-left: -60%;
+}
+#radio8:checked ~ .first {
+    margin-left: -70%;
+}
+#radio9:checked ~ .first {
+    margin-left: -80%;
+}
+#radio10:checked ~ .first {
+    margin-left: -90%;
+}
+/* css cho automatic navigation */
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 219px;
+
+}
+.navigation-auto div {
+    border: 2px solid #d6dcdf ;
+    padding: 3px;
+    border-radius: 10px;
+    transition: 1s;
+    background-color: #d6dcdf;
+}
+.navigation-auto div:not(:last-child) {
+    margin-right: 20px;
+}
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color:#ee4d2d ;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color:#ee4d2d ;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color:#ee4d2d ;
+}
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background-color:#ee4d2d ;
+}
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+    background-color:#ee4d2d ;
+}
+#radio6:checked ~ .navigation-auto .auto-btn6 {
+    background-color:#ee4d2d ;
+}
+#radio7:checked ~ .navigation-auto .auto-btn7 {
+    background-color:#ee4d2d ;
+}
+#radio8:checked ~ .navigation-auto .auto-btn8 {
+    background-color:#ee4d2d ;
+}
+#radio9:checked ~ .navigation-auto .auto-btn9 {
+    background-color:#ee4d2d ;
+}
+#radio10:checked ~ .navigation-auto .auto-btn10 {
+    background-color:#ee4d2d ;
+}
+/* kết thúc slider chuyển ảnh */
+/* css phân loại */
+.canphanloai {
+    display: flex;
+    margin-bottom: 40px;
+}
+.loaihang {
+    width: 1200px;
+    height: 108px;
+    background-color: #fff;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+
+}
+.hang1 {
+    width: 100px;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 8%;
+    transition: 0.05s;
+}
+.hang1:hover {
+    margin-top: -4px;
+    cursor: pointer;
+}
+
+.hang1 img {
+    width: 45px;
+    margin-bottom: 10px;
+}
+.hang1 span {
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* kết thúc css phân loại */
+/* css danh  mục */
+.danhmuc {
+    background-color: #fff;
+    width: 1200px;
+    margin: auto;
+}
+.dm {
+    padding: 0 30px;
+    color: #757575;
+    background: #f5f5f5;
+    height: 60px;
+    line-height: 60px;
+}
+.list1 {
+    list-style-type: none;
+    display: flex;
+}
+.list1 li {
+    width: 120px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #f3f3f3;
+    transition: 0.05s;
+}
+.list1 li:hover {
+    margin-top: -4px;
+    cursor: pointer;
+}
+.list1 li img {
+    width: 84px;
+    margin-bottom: 16px;
+}
+.list1 li span {
+    font-size: 14px;
+    color: black;
+}
+/* css flash sale */
+.flash {
+    width: 1200px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: #f5f5f5;
+}
+.flash-sale {
+    height: 61px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+}
+.flash-sale img {
+    width: 130px;
+    
+}
+.list-sale {
+    display: flex;
+    flex-direction: column;
+}
+.list1-sale {
+    list-style-type: none;
+    display: flex;
+    background-color: #fff;
+}
+.list1-sale:last-child {
+    margin-top: 30px;
+}
+.list1-sale li {
+    width: 200px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f5f5f5;
+    transition: 0.5s;
+}
+.list1-sale li:hover {
+    margin-top: -10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+.sp1 {
+    background-image: url(https://cf.shopee.vn/file/a285c9a1a3aa26edae3b2962df577fd9_tn),
+    url(https://cf.shopee.vn/file/ee594a01ebdc62795c47dbad9f4f63c9_tn) ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 173px;
+    height: 173px;
+    margin-bottom: 16px;
+    position: relative;
+}
+.list1-sale .sp2 {
+    background-image: url(https://cf.shopee.vn/file/d5fbd27be32864120c1d8edf4c3e8600_tn),
+    url(https://cf.shopee.vn/file/2c447592f733bab2fcfd5af6cde8ec68_tn) ;
+}
+.list1-sale .sp3 {
+    background-image: url(https://cf.shopee.vn/file/a285c9a1a3aa26edae3b2962df577fd9_tn),
+    url(https://cf.shopee.vn/file/996800312844f9dff9ffaba5433a71d9_tn) ;
+}
+.list1-sale .sp4 {
+    background-image: url(https://cf.shopee.vn/file/a285c9a1a3aa26edae3b2962df577fd9_tn),
+    url(https://cf.shopee.vn/file/9f6143a8dc1ec0331132629a077c646f_tn) ;
+}
+.list1-sale .sp5 {
+    background-image: url(https://cf.shopee.vn/file/a8c8940237b57921e6122e6680e20fa5_tn),
+    url(https://cf.shopee.vn/file/6819f0491a610c3279a071502255d673_tn) ;
+}
+.list1-sale .sp6 {
+    background-image: url(https://cf.shopee.vn/file/d5fbd27be32864120c1d8edf4c3e8600_tn),
+    url(https://cf.shopee.vn/file/279a686e5a99844d903665d542f199e6_tn) ;
+}
+.list1-sale .sp7 {
+    background-image: url(https://cf.shopee.vn/file/b400dd3d700b5190e5e5feadf4310bf9_tn),
+    url(https://cf.shopee.vn/file/f9ae0678deee2d2c6ea144bbb045ae37_tn) ;
+}
+.list1-sale .sp8 {
+    background-image: url(	https://cf.shopee.vn/file/d5fbd27be32864120c1d8edf4c3e8600_tn),
+    url(https://cf.shopee.vn/file/dec8f8065d28f3e8dea2fa1031ab72e2_tn) ;
+}
+.list1-sale .sp9 {
+    background-image: url(https://cf.shopee.vn/file/b400dd3d700b5190e5e5feadf4310bf9_tn),
+    url(https://cf.shopee.vn/file/ae6da131ec98628b491510ac75ae038c_tn) ;
+}
+.list1-sale .sp10 {
+    background-image: url(https://cf.shopee.vn/file/d5fbd27be32864120c1d8edf4c3e8600_tn),
+    url(https://cf.shopee.vn/file/9e571631a77f99d4184f7ede8be3ffcb_tn) ;
+}
+.list1-sale .sp11 {
+    background-image: url(https://cf.shopee.vn/file/d5fbd27be32864120c1d8edf4c3e8600_tn),
+    url(https://cf.shopee.vn/file/2f258d5e36e45bda1294f200a379ccef_tn) ;
+}
+.list1-sale .sp12 {
+    background-image: url(https://cf.shopee.vn/file/b400dd3d700b5190e5e5feadf4310bf9_tn),
+    url(https://cf.shopee.vn/file/74cf1deca88decb576c9892be51a5c87_tn) ;
+}
+
+
+.sp1 .giam-gia {
+    width: 50px;
+    height: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(255 216 57);
+    text-align: center;
+    line-height: 19px;
+}
+.sp1 .giam-gia:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    border-style: solid;
+    border-width: 0 25px 10px;
+    border-color: transparent rgb(255 216 57);
+}
+.sp1 .giam-gia span:first-child {
+    color: rgb(239 88 46);
+    font-weight: 600;
+}
+.sp1 .giam-gia span:last-child {
+    color: #fff;
+    font-weight: 600;
+}
+.giasp {
+    width: 170px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.giasp .text-gia {
+    color: #ee4d2d;
+    font-weight: 600;
+    font-size: 26px;
+}
+.giasp .sl-ban {
+    background-color: rgb(255 189 166);
+    border-radius: 50px;
+    line-height: 100%;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+}
+.giasp .sl-ban:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-color: #ed2715;
+    height: 100%;
+    width: 26%;
+    border-radius: 50px 0px 0px 50px;
+}
+/* kết thúc flash */
+/* css shop mall */
+.shopmall {
+    width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #f5f5f5;
+}
+.header-shopmall {
+    height: 61px;
+    padding: 0 20px;
+    display: flex;
+    line-height: 61px;
+    justify-content: space-between;
+    border: 1px solid #fff;
+}
+.header-shopmall-1 {
+    display: flex;
+
+}
+.header-shopmall-1 h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #d0011b;
+}
+.header-shopmall-1 div {
+    margin-right: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #ab2323;
+    font-weight: 600;
+}
+
+.header-shopmall-1 .time-free {
+    margin-left: 15px;
+    padding-left: 15px;
+    position: relative;
+}
+.time-free:after {
+    border: 1px solid;
+    position: absolute;
+    border-color: #e9dddd;
+    content: "";
+    height: 20px;
+    left: 0;
+}
+.header-shopmall-1 img {
+    width: 17px;
+    margin-right: 6px;
+}
+.header-shopmall-2 {
+    display: flex;
+    align-items: center;
+}
+.header-shopmall-2 .seeall {
+   
+    font-size: 14px;
+    text-decoration: none;
+    color: #d8293f;
+}
+.header-shopmall-2 div {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #D0011B;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.header-shopmall-2 div i {
+    font-size: 14px;
+    color: #fff;  
+}
+/* css cho slider shopmall */
+.body-shomall {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.slider-shopmall {
+    width: 390px;
+    height: 452px;
+    overflow: hidden;
+}
+.slides-shop {
+    width: 500%;
+    display: flex;
+}
+.slides-shop .slide-shop {
+    width: 20%;
+    height: 452px;
+    transition: 1s;
+    
+}
+.slides-shop input {
+    display: none;
+}
+.slides-shop img {
+    width: 390px;
+    height:452px ;
+}
+.navigation-manual-shop {
+    position: absolute;
+    width: 390px;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+}
+.manual-shop {
+    border: 2px solid #dedddc;
+    border-radius: 10px;
+    padding: 3px;
+    transition: 1s;
+}
+.manual-shop:not(:last-child) {
+    margin-right: 10px;
+}
+.navigation-auto-shop {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 390px;
+    margin-top: 432px;
+}
+.navigation-auto-shop div {
+    border: 2px solid #dedddc;
+    padding: 3px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.navigation-auto-shop div:not(:last-child) {
+    margin-right: 10px;
+}
+
+#radion1:checked ~ .first-mall {
+    margin-left: 0;
+}
+#radion2:checked ~ .first-mall {
+    margin-left: -20%;
+}
+#radion3:checked ~ .first-mall {
+    margin-left: -40%;
+}
+#radion4:checked ~ .first-mall {
+    margin-left: -60%;
+}
+#radion5:checked ~ .first-mall {
+    margin-left: -80%;
+}
+/* làm đổi màu khi chuyển ảnh */
+#radion1:checked ~ .navigation-auto-shop .auto-shop-1 {
+    background-color:#ee4d2d ;
+}
+#radion2:checked ~ .navigation-auto-shop .auto-shop-2 {
+    background-color:#ee4d2d ;
+}
+#radion3:checked ~ .navigation-auto-shop .auto-shop-3 {
+    background-color:#ee4d2d ;
+}
+#radion4:checked ~ .navigation-auto-shop .auto-shop-4 {
+    background-color:#ee4d2d ;
+}
+#radion5:checked ~ .navigation-auto-shop .auto-shop-5 {
+    background-color:#ee4d2d ;
+}
+/* css body shopmall 2 */
+.body-shopmall2 {
+    width: 800px;
+    margin-left: 10px;
+}
+.list-shopmall2 {
+    display: flex;
+}
+.list-shopmall2 li {
+ width:200px ;
+ height: 236px;
+ list-style-type: none;
+ transition: 0.09s;
+}
+.list-shopmall2 li:hover {
+    margin-top: -8px;
+    cursor: pointer;
+}
+.list-shopmall2 li div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 180px;
+    height: 216px;
+    margin: auto;
+    position: relative;
+}
+.list-shopmall2 li .brand1 {
+    background-image: url(https://cf.shopee.vn/file/d6d62083e305eb8ff17d2172433578a8_xhdpi);
+}
+.list-shopmall2 li .brand2 {
+    background-image: url(https://cf.shopee.vn/file/e076d31d00b167538f10ab2e2ac3d7d5_xhdpi);
+}
+.list-shopmall2 li .brand3 {
+    background-image: url(https://cf.shopee.vn/file/https:/cf.shopee.vn/file/7d5ddd21cc10e484de60e12d6c58734e_xhdpi);
+}
+.list-shopmall2 li .brand4 {
+    background-image: url(https://cf.shopee.vn/file/https:/cf.shopee.vn/file/ea507ee06252bb4c0d90eed99c1db288_xhdpi);
+}
+.list-shopmall2 li .brand5 {
+    background-image: url(https://cf.shopee.vn/file/6b86d11fd5440b22794735c70f40b146_xhdpi);
+}
+.list-shopmall2 li .brand6 {
+    background-image: url(https://cf.shopee.vn/file/636d02dd1be799b569085796a41afcaf_xhdpi);
+}
+.list-shopmall2 li .brand7 {
+    background-image: url(https://cf.shopee.vn/file/6b1825bee369e8a39fbc2172c9aead32_xhdpi);
+}
+.list-shopmall2 li .brand8 {
+    background-image: url(https://cf.shopee.vn/file/23925f71efede4e88932d1c447da8d05_xhdpi);
+}
+.list-shopmall2 li div span {
+    position: absolute;
+    bottom: 8px;
+    font-size: 18px;
+    color: #d0021c;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+/* css phần gọi ý hôm nay */
+.goiy {
+    width: 1200px;
+    margin: auto;
+    margin-top: 30px;
+}
+.header-goiy {
+    height: 61px;
+    display: flex;
+    align-items: center;
+    padding: 46px;
+    background-color: #f5f5f5;
+}
+.header-goiy h6 {
+    color: rgb(238 79 47);
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 92px;
+}
+.header-goiy img {
+    width: 160px;
+    height: 20px;
+}
+.list-goiy {
+    margin-top: 10px;
+    background-color: #f5f5f5;
+}
+.list-goiy-1 {
+    height: 260px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.list-goiy-1:not(:first-child) {
+    margin-top: 20px;
+}
+.sp-goiy1 {
+    width: 190px;
+    height: 260px;
+    position: relative;
+    background-color: #fff;
+}
+.sp-goiy1 .tksp {
+    top:256px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    background: #ee4d2d;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: 600;
+    width: 190px;
+    transition: 0.1s;
+    display: none;
+}
+.sp-goiy1:hover {
+    cursor: pointer;
+    margin-top: -20px;
+    box-shadow: 0 0 2px #ee4d2d;;
+}
+.sp-goiy1:hover .tksp {
+    display: block;
+}
+.sp-goiy1:after {
+    content: "";
+    border-style: solid;
+    border-width: 0 18px 12px;
+    border-color: transparent rgb(255, 216, 57);
+    position: absolute;
+    right: 0;
+    top: 32px;
+}
+.disco-goiy {
+    width: 36px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: 0%;
+    background-color: rgb(255, 216, 57);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    color: #fff;
+}
+.disco-goiy span:first-child {
+    color: #ef582d;
+}
+.anh-sp-goiy {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 188px;
+    height: 188px;
+}
+.gy1 {
+    background-image: url(https://cf.shopee.vn/file/5a2d04a6bb00214be8993b20c08e8ad8),
+    url(https://cf.shopee.vn/file/882b9cbe7952c264756c7aae93f73c95_tn);
+}
+.gy2 {
+    background-image: url(https://cf.shopee.vn/file/5a2d04a6bb00214be8993b20c08e8ad8),
+    url(https://cf.shopee.vn/file/0009243628ecb3c900fcb15cf81b3415_tn) ;
+}
+.gy3 {
+    background-image: url(https://cf.shopee.vn/file/461691071df30827265cc48e9b5e76f3),
+    url(https://cf.shopee.vn/file/ad2c3d5b4a0ab2dbbfb0ed0ba3243a45_tn) ;
+}
+.gy4 {
+    background-image: url(https://cf.shopee.vn/file/5a2d04a6bb00214be8993b20c08e8ad8),
+    url(	https://cf.shopee.vn/file/7c56cae6099a830377c7e7ac2566d78a_tn) ;
+}
+.gy5 {
+    background-image: url(https://cf.shopee.vn/file/461691071df30827265cc48e9b5e76f3),
+    url(https://cf.shopee.vn/file/7799681ce9ab635b02411d1e70d37d2f_tn) ;
+}
+.gy6 {
+    background-image: url(https://cf.shopee.vn/file/5a2d04a6bb00214be8993b20c08e8ad8),
+    url(https://cf.shopee.vn/file/ff466fb31b00a39fa82a1d43a13564c2_tn) ;
+}
+.gy7 {
+    background-image: url(https://cf.shopee.vn/file/64cc6e5365663b97de6a51b303be7d35),
+    url(https://cf.shopee.vn/file/edeb7e96b890c0c0e465ddb911ca2fc3_tn);
+}
+.gy8 {
+    background-image:
+    url(https://cf.shopee.vn/file/d2aee68a062f33fad5ea1dd57df1b9a7_tn);
+}
+.gy9 {
+    background-image: url(https://cf.shopee.vn/file/982288c945924c88183d6cc2149484e3_tn),
+    url();
+}
+.gy10 {
+    background-image: url(https://cf.shopee.vn/file/5a2d04a6bb00214be8993b20c08e8ad8),
+    url(https://cf.shopee.vn/file/99a8f754a818e6ec36f463319dd43dfb_tn);
+}
+.gy11 {
+    background-image: url(https://cf.shopee.vn/file/461691071df30827265cc48e9b5e76f3),
+    url(https://cf.shopee.vn/file/b21e5ec77c9c0a6a1e2bbee9cf34f8a5_tn);
+}
+.gy12 {
+    background-image: url(https://cf.shopee.vn/file/64cc6e5365663b97de6a51b303be7d35),
+    url(https://cf.shopee.vn/file/d27ffe09c17dd4edac8f9f407c41508a_tn);
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.gy {
+    background-image: url(),
+    url();
+}
+.mota-goiy {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.mota-goiy p {
+    font-size: 12px;
+    font-weight: 600;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    height: 26px;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.gia-sp {
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(0,0,0,.54);
+    display: flex;
+    justify-content: space-around;
+}
+.gia-sp span {
+    flex-basis: 40%;
+}
+.gia-sp span:first-child {
+    font-size: 16px;
+    color: #ee4d2d;
+    font-weight: 600;
+}
+.gia-sp span:last-child {
+    padding-left: 11px;
+}
+/* css cho phần footer gợi ý */
+.footer-goiy {
+    height: 150px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    border-bottom: 4px solid #ee4d2d;
+}
+.footer-goiy .seeall-goiy {
+    width: 390px;
+    height: 40px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 40px;
+    color: #6a6a6a;
+    border-radius: 2px;
+}
+.footer-goiy .seeall-goiy:hover {
+    cursor: pointer;
+}
+/* css cho foter app */
+.foter-app {
+    width: 100%;
+    margin-top: 100px;
+}
+.foter-app .foter1 {
+    width: 1200px;
+    margin: auto;
+    text-align: justify;
+    border-bottom: 1px solid #f5f5f5;
+}
+.foter1 h3 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.foter1 p {
+    margin-bottom: 26px;
+    font-size: 12px;
+    color: #464646;
+}
+.foter1 p:last-child {
+    margin-bottom: 100px;
+}
+.foter2 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 1200px;
+    margin: auto;
+    border-bottom: solid #f5f5f5;
+}
+.foter2 div {
+    width: 230px;
+    height: 388px;
+
+}
+.foter2 a:hover {
+    color: #ee4d2d;
+    font-weight: 600;
+}
+.foter2 div:not(:last-child) {
+    display: flex;
+    flex-direction: column;
+}
+.foter2 h6 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #747474;
+    margin: 40px 0 20px;
+}
+.foter2 .vc h6 {
+    margin-top: -5px;
+}
+.foter2 a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #969696;
+    margin-bottom: 12px;
+}
+/* css thanh toán */
+.tt ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.tt li {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+.tt li div {
+    width: 55px;
+    height: 18px;
+    background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+    background-repeat: no-repeat;
+}
+.tt .visa {
+    background-size: 1347.2727272727273% 983.3333333333334%;
+    background-position: 84.6938775510204% 6.289308176100629%;
+}
+.tt .master {
+    background-size: 1347.2727272727273% 610.3448275862069%;
+    background-position: 49.416909620991255% 41.891891891891895%;
+}
+.tt .jcb {
+    background-size: 1347.2727272727273% 769.5652173913044%;
+    background-position: 38.48396501457726% 38.311688311688314%;
+}
+.tt .amex {
+    background-size: 1482% 804.5454545454545%;
+    background-position: 1.447178002894356% 6.451612903225806%;
+}
+.tt .cod {
+    background-size: 1482% 610.3448275862069%;
+    background-position: 59.91316931982634% 63.513513513513516%;
+}
+.tt .tragop {
+    background-size: 1347.2727272727273% 610.3448275862069%;
+    background-position: 19.97084548104956% 66.21621621621621%;
+}
+.tt .shopay {
+    background-size: 741% 931.578947368421%;
+    background-position: 71.9188767550702% 6.329113924050633%;
+}
+/* css đơn vij vc */
+.vc ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.vc li {
+    margin-right: 8px;
+    margin-bottom: 14px;
+}
+.vc li div {
+    width: 55px;
+    height: 18px;
+    background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+    background-repeat: no-repeat;
+}
+.vc .shopvc {
+    background-size: 667.5675675675676% 983.3333333333334%;
+    background-position: 65.71428571428571% 35.22012578616352%;
+}
+
+.vc .ghtk {
+    background-size: 1347.2727272727273% 983.3333333333334%;
+    background-position: 19.97084548104956% 37.735849056603776%;
+}
+.vc .ghn {
+    background-size: 1347.27% 790.345%;
+    background-position: 9.0379% 40.5405%;
+}
+.vc .vt {
+    background-size: 543.906% 295.681%;
+    background-position: 89.907% 64%;
+}
+.vc .vn  {
+    background-size: 1347.2727272727273% 655.5555555555555%;
+    background-position: 1.4577259475218658% 72.66666666666667%;
+}
+.vc .jt  {
+    background-size: 1347.2727272727273% 1106.25%;
+    background-position: 95.6268221574344% 6.211180124223603%;
+}
+.vc .grab  {
+    background-size: 552.9850746268656% 610.3448275862069%;
+    background-position: 29.9835255354201% 6.756756756756757%;
+}
+.vc .ninja {
+    background-size: 1235% 680.7692307692307%;
+    background-position: 55.947136563876654% 6.622516556291391%;
+}
+.vc .best {
+    background-size: 1029.1666666666667% 590%;
+    background-position: 13.452914798206278% 6.802721088435374%;
+}
+.folow i {
+    margin-bottom: 16px;
+    color: #4a4a4a;
+}
+.folow a {
+    font-size: 14px;
+    margin-left: 10px;
+}
+.tai1 {
+    width: 86px;
+    height: 86px;
+}
+.anh-taiapp div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+.anh-taiapp {
+    display: flex;
+}
+.anh-taiapp div img {
+    width: 80px;
+    height: 17px;
+    margin-bottom: 8px;
+}
+.foter3 {
+    width: 1200px;
+    margin: auto;
+    margin-top: 46px;
+    height: 60px;
+}
+.foter3 div {
+    display: flex;
+}
+.foter3 div h6 {
+    font-size: 14px;
+    color: rgb(154 154 154);
+}
+.foter3 div h6 a {
+    cursor: text;
+}
+.foter3 div a {
+    font-size: 14px;
+    color: rgb(154 154 154);
+    text-decoration: none;
+    padding: 0 6px;
+}
+.foter3 div a:not(:last-child) {
+    border-right: 0.5px solid rgb(154 154 154);
+}
+.foter4 {
+    width: 1200px;
+    margin: auto;
+    background-color: rgb(245 245 245);
+    padding-bottom: 40px;
+}
+.quyche {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding-top: 44px;
+}
+.quyche a {
+    font-size: 12px;
+    text-decoration: none;
+    color: rgb(157 157 157);
+    font-weight: 600;
+    padding: 0 25px;
+}
+.quyche a:not(:last-child) {
+    border-right: 1px solid rgb(157 157 157);
+}
+.anhdk {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.anhdk a div {
+    background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+    background-repeat: no-repeat;
+    margin: 0 50px;
+}
+.anhdk a:first-child div {
+    width: 120px;
+    height: 45px;
+    background-size: 617.5% 393.3333333333333%;
+    background-position: 34.13848631239936% 84.0909090909091%;
+}
+.anhdk a:last-child div {
+    width: 48px;
+    height: 48px;
+    background-size: 1543.75% 368.75%;
+    background-position: 100% 35.65891472868217%;
+}
+.infor-shop {
+    text-align: center;
+}
+.infor-shop h6 {
+    font-size: 12px;
+    color: #8d8d8d;
+    margin-bottom: 20px;
+}
+.infor-shop p {
+    font-size: 12px;
+    color: #8d8d8d;
+    line-height: 2.3;
+    font-weight: bold;
+}
